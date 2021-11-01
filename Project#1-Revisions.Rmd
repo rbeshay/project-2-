@@ -1,0 +1,210 @@
+---
+title: "Project#1 - Revisions"
+author: "Sarah Fraschetti"
+date: "10/18/2021"
+output: html_document
+---
+
+The comments I received on my visuals: 
+
+Fig1: Liked this, maybe a darker color for the line with better contrast. Fig 2: it would be cool to somehow incorporate other factors like you said to get into one figure to see the bigger picture. Nice job working on cleaning the data set! It shows.
+ - I will definitely use a darker color, like blue, for better contrast when revising Viz #1. 
+
+The graphs were very clear and it was easy to see the trends that were being portrayed. Using a scatter plot in viz 1 would be easier to interpret. because the connecting lines suggest that the data is connected when it is actually independent.
+- I will definitely use a scatter plot in Viz #1 making it easier to interpret, and so people do not think the alumni salaries are connected.  
+
+The way you structured and split up the two graphs is really nice and makes it less complex breaking it up this way. I also think the colors were also very nice and made for a good graph! A scatter plot might work better for your first graph so at first glance the reader of the graph doesn’t assume those points have a connection or relationship.
+- I will change Viz #1 to a scatterplot rather than a line graph since the points do not have a connection or relationship.
+
+Very clear viz, very good. I would go to a scatter plot for viz 1, since they are not truly connected data points. Salary should be in dollars. Colors could be a little more contrasting with background. (Try removing grey background with theme_minimal())
+- I will change Viz #1 to a scatterplot, add ($) to the y-axis, and remove the grey background. 
+
+```{r setup, include=FALSE}
+# install readr package 
+
+library(readr)
+
+TopColleges2019 <- read_csv("ForbesAmericasTopColleges2019.csv")
+
+TopColleges2019.cleaned <- na.omit(TopColleges2019)
+```
+
+Revised Visualization #1
+
+```{r}
+# Install necessary packages: 
+
+library(lattice)
+library(viridis)
+library(ggplot2)
+
+data = ("TopColleges2019.cleaned")
+
+# Create plot comparing College Rank and Alumni Salary 
+
+ggplot( TopColleges2019.cleaned, aes(x = TopColleges2019.cleaned$Rank, y = TopColleges2019.cleaned$`Alumni Salary`)) +
+  geom_point(pch=0,size=0.6, color="blue") + xlab("College Ranking") + ylab("Alumni Salary ($)") + ggtitle("College Ranking vs. Average Alumni Salary") + theme_minimal()
+```
+
+
+New Visualization: 
+
+```{r}
+
+library(readr)
+
+TopColleges2019 <- read_csv("ForbesAmericasTopColleges2019.csv")
+
+TopColleges2019
+
+TopColleges2019.cleaned <- na.omit(TopColleges2019) 
+
+
+TopColleges2019.cleaned$State <- factor(TopColleges2019.cleaned$State)
+levels(TopColleges2019.cleaned$State)
+nlevels(TopColleges2019.cleaned$State)
+
+median.scores <- data.frame("State" = levels(TopColleges2019.cleaned$State), 
+                            "Medians" = rep(NA, length=nlevels(TopColleges2019.cleaned$State)))
+
+
+median.scores$Medians[median.scores$State == "AL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="AL"])
+
+median.scores$Medians[median.scores$State == "AK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="AK"])
+
+median.scores$Medians[median.scores$State == "AZ"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="AZ"])
+
+median.scores$Medians[median.scores$State == "AR"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="AR"])
+
+median.scores$Medians[median.scores$State == "CA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="CA"])
+
+median.scores$Medians[median.scores$State == "CO"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="CO"])
+
+median.scores$Medians[median.scores$State == "CT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="CT"])
+
+median.scores$Medians[median.scores$State == "DE"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="DE"])
+
+median.scores$Medians[median.scores$State == "FL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="FL"])
+
+median.scores$Medians[median.scores$State == "GA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="GA"])
+
+median.scores$Medians[median.scores$State == "HI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="HI"])
+
+median.scores$Medians[median.scores$State == "ID"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="ID"])
+
+median.scores$Medians[median.scores$State == "IL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="IL"])
+
+median.scores$Medians[median.scores$State == "IN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="IN"])
+
+median.scores$Medians[median.scores$State == "IA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="IA"])
+
+median.scores$Medians[median.scores$State == "KS"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="KS"])
+
+median.scores$Medians[median.scores$State == "KY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="KY"])
+
+median.scores$Medians[median.scores$State == "LA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="LA"])
+
+median.scores$Medians[median.scores$State == "ME"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="ME"])
+
+median.scores$Medians[median.scores$State == "MD"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MD"])
+
+median.scores$Medians[median.scores$State == "MA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MA"])
+
+median.scores$Medians[median.scores$State == "MI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MI"])
+
+median.scores$Medians[median.scores$State == "MN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MN"])
+
+median.scores$Medians[median.scores$State == "MS"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MS"])
+
+median.scores$Medians[median.scores$State == "MO"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MO"])
+
+median.scores$Medians[median.scores$State == "MT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="MT"])
+
+median.scores$Medians[median.scores$State == "NE"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NE"])
+
+median.scores$Medians[median.scores$State == "NV"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NV"])
+
+median.scores$Medians[median.scores$State == "NH"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NH"])
+
+median.scores$Medians[median.scores$State == "NJ"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NJ"])
+
+median.scores$Medians[median.scores$State == "NM"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NM"])
+
+median.scores$Medians[median.scores$State == "NY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NY"])
+
+median.scores$Medians[median.scores$State == "NC"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="NC"])
+
+median.scores$Medians[median.scores$State == "ND"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="ND"])
+
+median.scores$Medians[median.scores$State == "OH"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="OH"])
+
+median.scores$Medians[median.scores$State == "OK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="OK"])
+
+median.scores$Medians[median.scores$State == "OR"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="OR"])
+
+median.scores$Medians[median.scores$State == "PA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="PA"])
+
+median.scores$Medians[median.scores$State == "RI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="RI"])
+
+median.scores$Medians[median.scores$State == "SC"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="SC"])
+
+median.scores$Medians[median.scores$State == "SD"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="SD"])
+
+median.scores$Medians[median.scores$State == "TN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="TN"])
+
+median.scores$Medians[median.scores$State == "TX"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="TX"])
+
+median.scores$Medians[median.scores$State == "UT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="UT"])
+
+median.scores$Medians[median.scores$State == "VT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="VT"])
+
+median.scores$Medians[median.scores$State == "VA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="VA"])
+
+median.scores$Medians[median.scores$State == "WA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="WA"])
+
+median.scores$Medians[median.scores$State == "WV"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="WV"])
+
+median.scores$Medians[median.scores$State == "WI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="WI"])
+
+median.scores$Medians[median.scores$State == "WY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State=="WY"])
+
+
+#View(TopColleges2019.cleaned)
+
+# Install necessary packages: 
+library(ggplot2)
+library(maps)
+library(mapproj)
+library(dplyr)
+
+# Create map showing the median ranking of colleges in each state. 
+
+
+map.colleges <- merge(TopColleges2019.cleaned, median.scores, by = "State")
+
+names(map.colleges)[1] <- "region"
+
+map.colleges$region <- tolower(state.name[match(map.colleges$region, state.abb)])
+map.colleges <- na.omit(map.colleges)
+
+MainStates <- map_data("state")
+
+MergedStates <- inner_join(MainStates, map.colleges, by = "region")
+
+# TopColleges2019 <- read_csv("ForbesAmericasTopColleges2019.csv")
+
+
+
+ggplot() + 
+  geom_polygon( data=MainStates, aes(x=long, y=lat, group=group), 
+                color="black", fill="lightblue")
+
+p <- ggplot(MergedStates, aes(x=long, y=lat, group=group, fill=Medians)) + 
+  geom_polygon(color="white", size=0.2) + ggtitle("Median College Ranking By State") + scale_fill_viridis_c() + theme_void()
+
+p$labels$fill <- "Median Ranking"
+
+p
+```
+
+
