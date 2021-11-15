@@ -26,6 +26,20 @@ median.scores <- data.frame("State" = levels(TopColleges2019.cleaned$State),
                             "Medians" = rep(NA, length=nlevels(TopColleges2019.cleaned$State)))
 
 
+# making the first loop
+
+stateabbs_as_numbers <- as.numeric(state.abb)
+
+a <- "AL"
+
+repeat{
+  median.scores$Medians[median.scores$State == "a"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="a"])
+ if(a > "WY") {
+   break
+ }
+}
+
+
 median.scores$Medians[median.scores$State == "AL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AL"])
 
 median.scores$Medians[median.scores$State == "AK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AK"])
