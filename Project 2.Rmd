@@ -30,115 +30,118 @@ median.scores <- data.frame("State" = levels(TopColleges2019.cleaned$State),
 
 stateabbs_as_numbers <- as.numeric(state.abb)
 
-a <- "AL"
+#a <- "AL"
 
-repeat{
-  median.scores$Medians[median.scores$State == "a"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="a"])
- if(a > "WY") {
-   break
- }
+#repeat{
+#  median.scores$Medians[median.scores$State == "a"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="a"])
+ #if(a > "WY") {
+#   break
+# }
+#}
+
+for (x in median.scores$State) {
+  median.scores$Medians[median.scores$State == x] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State == x])
 }
 
+#median.scores$Medians[median.scores$State == "AL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AL"])
 
-median.scores$Medians[median.scores$State == "AL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AL"])
+#median.scores$Medians[median.scores$State == "AK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AK"])
 
-median.scores$Medians[median.scores$State == "AK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AK"])
+#median.scores$Medians[median.scores$State == "AZ"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AZ"])
 
-median.scores$Medians[median.scores$State == "AZ"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AZ"])
+#median.scores$Medians[median.scores$State == "AR"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AR"])
 
-median.scores$Medians[median.scores$State == "AR"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="AR"])
+#median.scores$Medians[median.scores$State == "CA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="CA"])
 
-median.scores$Medians[median.scores$State == "CA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="CA"])
+#median.scores$Medians[median.scores$State == "CO"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="CO"])
 
-median.scores$Medians[median.scores$State == "CO"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="CO"])
+#median.scores$Medians[median.scores$State == "CT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="CT"])
 
-median.scores$Medians[median.scores$State == "CT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="CT"])
+#median.scores$Medians[median.scores$State == "DE"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="DE"])
 
-median.scores$Medians[median.scores$State == "DE"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="DE"])
+#median.scores$Medians[median.scores$State == "FL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="FL"])
 
-median.scores$Medians[median.scores$State == "FL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="FL"])
+#median.scores$Medians[median.scores$State == "GA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="GA"])
 
-median.scores$Medians[median.scores$State == "GA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="GA"])
+#median.scores$Medians[median.scores$State == "HI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="HI"])
 
-median.scores$Medians[median.scores$State == "HI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="HI"])
+#median.scores$Medians[median.scores$State == "ID"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="ID"])
 
-median.scores$Medians[median.scores$State == "ID"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="ID"])
+#median.scores$Medians[median.scores$State == "IL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="IL"])
 
-median.scores$Medians[median.scores$State == "IL"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="IL"])
+#median.scores$Medians[median.scores$State == "IN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="IN"])
 
-median.scores$Medians[median.scores$State == "IN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="IN"])
+#median.scores$Medians[median.scores$State == "IA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="IA"])
 
-median.scores$Medians[median.scores$State == "IA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="IA"])
+#median.scores$Medians[median.scores$State == "KS"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="KS"])
 
-median.scores$Medians[median.scores$State == "KS"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="KS"])
+#median.scores$Medians[median.scores$State == "KY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="KY"])
 
-median.scores$Medians[median.scores$State == "KY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="KY"])
+#median.scores$Medians[median.scores$State == "LA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="LA"])
 
-median.scores$Medians[median.scores$State == "LA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="LA"])
+#median.scores$Medians[median.scores$State == "ME"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="ME"])
 
-median.scores$Medians[median.scores$State == "ME"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="ME"])
+#median.scores$Medians[median.scores$State == "MD"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MD"])
 
-median.scores$Medians[median.scores$State == "MD"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MD"])
+#median.scores$Medians[median.scores$State == "MA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MA"])
 
-median.scores$Medians[median.scores$State == "MA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MA"])
+#median.scores$Medians[median.scores$State == "MI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MI"])
 
-median.scores$Medians[median.scores$State == "MI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MI"])
+#median.scores$Medians[median.scores$State == "MN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MN"])
 
-median.scores$Medians[median.scores$State == "MN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MN"])
+#median.scores$Medians[median.scores$State == "MS"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MS"])
 
-median.scores$Medians[median.scores$State == "MS"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MS"])
+#median.scores$Medians[median.scores$State == "MO"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MO"])
 
-median.scores$Medians[median.scores$State == "MO"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MO"])
+#median.scores$Medians[median.scores$State == "MT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MT"])
 
-median.scores$Medians[median.scores$State == "MT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="MT"])
+#median.scores$Medians[median.scores$State == "NE"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NE"])
 
-median.scores$Medians[median.scores$State == "NE"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NE"])
+#median.scores$Medians[median.scores$State == "NV"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NV"])
 
-median.scores$Medians[median.scores$State == "NV"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NV"])
+#median.scores$Medians[median.scores$State == "NH"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NH"])
 
-median.scores$Medians[median.scores$State == "NH"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NH"])
+#median.scores$Medians[median.scores$State == "NJ"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NJ"])
 
-median.scores$Medians[median.scores$State == "NJ"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NJ"])
+#median.scores$Medians[median.scores$State == "NM"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NM"])
 
-median.scores$Medians[median.scores$State == "NM"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NM"])
+#median.scores$Medians[median.scores$State == "NY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NY"])
 
-median.scores$Medians[median.scores$State == "NY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NY"])
+#median.scores$Medians[median.scores$State == "NC"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NC"])
 
-median.scores$Medians[median.scores$State == "NC"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="NC"])
+#median.scores$Medians[median.scores$State == "ND"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="ND"])
 
-median.scores$Medians[median.scores$State == "ND"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="ND"])
+#median.scores$Medians[median.scores$State == "OH"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="OH"])
 
-median.scores$Medians[median.scores$State == "OH"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="OH"])
+#median.scores$Medians[median.scores$State == "OK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="OK"])
 
-median.scores$Medians[median.scores$State == "OK"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="OK"])
+#median.scores$Medians[median.scores$State == "OR"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="OR"])
 
-median.scores$Medians[median.scores$State == "OR"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="OR"])
+#median.scores$Medians[median.scores$State == "PA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="PA"])
 
-median.scores$Medians[median.scores$State == "PA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="PA"])
+#median.scores$Medians[median.scores$State == "RI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="RI"])
 
-median.scores$Medians[median.scores$State == "RI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="RI"])
+#median.scores$Medians[median.scores$State == "SC"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="SC"])
 
-median.scores$Medians[median.scores$State == "SC"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="SC"])
+#median.scores$Medians[median.scores$State == "SD"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="SD"])
 
-median.scores$Medians[median.scores$State == "SD"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="SD"])
+#median.scores$Medians[median.scores$State == "TN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="TN"])
 
-median.scores$Medians[median.scores$State == "TN"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="TN"])
+#median.scores$Medians[median.scores$State == "TX"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="TX"])
 
-median.scores$Medians[median.scores$State == "TX"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="TX"])
+#median.scores$Medians[median.scores$State == "UT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="UT"])
 
-median.scores$Medians[median.scores$State == "UT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="UT"])
+#median.scores$Medians[median.scores$State == "VT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="VT"])
 
-median.scores$Medians[median.scores$State == "VT"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="VT"])
+#median.scores$Medians[median.scores$State == "VA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="VA"])
 
-median.scores$Medians[median.scores$State == "VA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="VA"])
+#median.scores$Medians[median.scores$State == "WA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WA"])
 
-median.scores$Medians[median.scores$State == "WA"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WA"])
+#median.scores$Medians[median.scores$State == "WV"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WV"])
 
-median.scores$Medians[median.scores$State == "WV"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WV"])
+#median.scores$Medians[median.scores$State == "WI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WI"])
 
-median.scores$Medians[median.scores$State == "WI"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WI"])
-
-median.scores$Medians[median.scores$State == "WY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WY"])
+#median.scores$Medians[median.scores$State == "WY"] <- median(TopColleges2019.cleaned$Rank[TopColleges2019.cleaned$State =="WY"])
 
 
 #View(TopColleges2019.cleaned)
