@@ -56,13 +56,15 @@ Main_States <- map_data("state")
 Merged_States <- inner_join(Main_States, map_colleges, by = "region")
 
 
-# Plot on Map
+# Plot Base Map
 
 ggplot() + 
-  geom_polygon(data = MainStates, aes(x = long, y = lat, group = group), 
+  geom_polygon(data = Main_States, aes(x = long, y = lat, group = group), 
                 color = "black", fill = "lightblue")
 
-p <- ggplot(MergedStates, aes(x = long, y = lat, group = group, fill = Medians)) + 
+# Plot Median College Rankings on Map
+
+p <- ggplot(Merged_States, aes(x = long, y = lat, group = group, fill = Medians)) + 
   geom_polygon(color = "white", size = 0.2) + ggtitle("Median College Ranking By State") + scale_fill_viridis_c() + theme_void()
 
 p$labels$fill <- "Median Ranking"
