@@ -27,7 +27,7 @@ median_scores <- data.frame("State" = levels(Top_Colleges_2019_cleaned$State),
                             "Medians" = rep(NA, length = nlevels(Top_Colleges_2019_cleaned$State)))
 
 
-# Function and Loop:
+# Loop:
 
 calculate_medians <- function(Top_Colleges_2019_cleaned, college_data){
   median_scores <- data.frame("State" = levels(Top_Colleges_2019_cleaned$State), 
@@ -39,6 +39,9 @@ calculate_medians <- function(Top_Colleges_2019_cleaned, college_data){
   return(median_scores)
 }
 
+median_scores <- calculate_medians(Top_Colleges_2019_cleaned, "Rank")
+median_scores_pop <- calculate_medians(Top_Colleges_2019_cleaned, "Student Population")
+
 # Install necessary packages: 
 
 library(ggplot2)
@@ -46,7 +49,7 @@ library(maps)
 library(mapproj)
 library(dplyr)
 
-# Create map showing the median ranking of colleges in each state 
+# Create map showing the median ranking of colleges in each state. 
 
 
 map_colleges <- merge(Top_Colleges_2019_cleaned, median_scores, by = "State")
