@@ -23,9 +23,6 @@ Top_Colleges_2019_cleaned$State <- factor(Top_Colleges_2019_cleaned$State)
 levels(Top_Colleges_2019_cleaned$State)
 nlevels(Top_Colleges_2019_cleaned$State)
 
-median_scores <- data.frame("State" = levels(Top_Colleges_2019_cleaned$State), 
-                            "Medians" = rep(NA, length = nlevels(Top_Colleges_2019_cleaned$State)))
-
 
 # Loop:
 
@@ -63,6 +60,17 @@ Main_States <- map_data("state")
 
 Merged_States <- inner_join(Main_States, map_colleges, by = "region")
   
+# median population data 
+map_colleges_pop <- merge(Top_Colleges_2019_cleaned, median_scores_pop, by = "State")
+
+names(map_colleges_pop)[1] <- "region"
+
+map_colleges_pop$region <- tolower(state.name[match(map_colleges_pop$region, state.abb)])
+map_colleges_pop <- na.omit(map_colleges_pop)
+
+Main_States_pop <- map_data("state")
+
+Merged_States_pop <- inner_join(Main_States_pop, map_colleges_pop, by = "region")
 
 # Plot Base Map
 
@@ -77,26 +85,41 @@ p <- ggplot(Merged_States, aes(x = long, y = lat, group = group, fill = Medians)
 
 p$labels$fill <- "Median Ranking"
 
-p
+
 
 # median population data 
-map_colleges <- merge(Top_Colleges_2019_cleaned, median_scores_pop, by = "State")
+map_colleges_pop <- merge(Top_Colleges_2019_cleaned, median_scores_pop, by = "State")
 
-names(map_colleges)[1] <- "region"
+names(map_colleges_pop)[1] <- "region"
 
-map_colleges$region <- tolower(state.name[match(map_colleges$region, state.abb)])
-map_colleges <- na.omit(map_colleges)
+map_colleges_pop$region <- tolower(state.name[match(map_colleges_pop$region, state.abb)])
+map_colleges_pop <- na.omit(map_colleges_pop)
 
-Main_States <- map_data("state")
+Main_States_pop <- map_data("state")
 
-Merged_States <- inner_join(Main_States, map_colleges, by = "region")
+Merged_States_pop <- inner_join(Main_States_pop, map_colleges_pop, by = "region")
 
 # plot map for pop
 
-p <- ggplot(Merged_States, aes(x = long, y = lat, group = group, fill = Medians)) + 
+p <- ggplot(Merged_States_pop, aes(x = long, y = lat, group = group, fill = Medians)) + 
   geom_polygon(color = "white", size = 0.2) + ggtitle("Median College Ranking By State") + scale_fill_viridis_c() + theme_void()
 
 p$labels$fill <- "Median Population"
+
+
+
+xinput <- readline("Plot median ranking or median population, enter M or P:")
+
+if (xinput == 'M'){
+	p <- ggplot(Merged_States, aes(x = long, y = lat, group = group, fill = Medians)) + 
+	  geom_polygon(color = "white", size = 0.2) + ggtitle("Median College Ranking By State") + scale_fill_viridis_c() + theme_void()
+	  p$labels$fill <- "Median Ranking"
+} else if (xinput == 'P') {
+	p <- ggplot(Merged_States_pop, aes(x = long, y = lat, group = group, fill = Medians)) + 
+  geom_polygon(color = "white", size = 0.2) + ggtitle("Median College Ranking By State") + scale_fill_viridis_c() + theme_void()
+	p$labels$fill <- "Median Population"
+}
+
 
 p
 ```
