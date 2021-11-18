@@ -1,6 +1,6 @@
 ---
 title: "Project 2"
-author: "Sarah Fraschetti"
+author: "Sarah Fraschetti and Rachelle Beshay"
 date: "11/10/2021"
 output: html_document
 ---
