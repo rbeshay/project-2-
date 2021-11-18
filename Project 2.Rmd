@@ -79,6 +79,26 @@ p$labels$fill <- "Median Ranking"
 
 p
 
+# median population data 
+map_colleges <- merge(Top_Colleges_2019_cleaned, median_scores_pop, by = "State")
+
+names(map_colleges)[1] <- "region"
+
+map_colleges$region <- tolower(state.name[match(map_colleges$region, state.abb)])
+map_colleges <- na.omit(map_colleges)
+
+Main_States <- map_data("state")
+
+Merged_States <- inner_join(Main_States, map_colleges, by = "region")
+
+# plot map for pop
+
+p <- ggplot(Merged_States, aes(x = long, y = lat, group = group, fill = Medians)) + 
+  geom_polygon(color = "white", size = 0.2) + ggtitle("Median College Ranking By State") + scale_fill_viridis_c() + theme_void()
+
+p$labels$fill <- "Median Ranking"
+
+p
 ```
 
 
