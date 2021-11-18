@@ -92,7 +92,7 @@ p$labels$fill <- "Median Ranking"
 # Plot Median Student Population on Map:
 
 p <- ggplot(Merged_States_pop, aes(x = long, y = lat, group = group, fill = Medians)) + 
-  geom_polygon(color = "white", size = 0.2) + ggtitle("Median College Ranking By State") + 
+  geom_polygon(color = "white", size = 0.2) + ggtitle("Median Student Population By State") + 
   scale_fill_viridis_c() + theme_void()
 
 p$labels$fill <- "Median Population"
